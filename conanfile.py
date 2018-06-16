@@ -225,7 +225,7 @@ class OpenSSLConan(ConanFile):
 
     def ios_build(self):
         def call(cmd):
-            return subprocess.check_output(cmd, shell=False).strip()
+            return subprocess.check_output(cmd, shell=False).decode().strip()
 
         def find_sysroot(sdk_name):
             return call(["xcrun", "--show-sdk-path", "-sdk", sdk_name])
